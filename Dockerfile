@@ -1,9 +1,7 @@
-FROM openjdk:8-jdk-alpine 
+FROM openjdk:8-jdk
 
-ARG JAR_FILE=target/*.jar 
+COPY target/*.jar /opt/spring-petclinic.jar
 
-COPY ${JAR_FILE} app.jar 
+EXPOSE 8080
 
-EXPOSE 8080 
-
-ENTRYPOINT ["java","-jar","/app.jar"]  
+CMD ["java", "-jar", "/opt/spring-petclinic.jar"]
